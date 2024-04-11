@@ -1,6 +1,7 @@
 
 package Vista;
 
+import entidades.Producto;
 import java.util.HashSet;
 
 
@@ -42,7 +43,7 @@ public class Detodosa extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 309, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -59,6 +60,11 @@ public class Detodosa extends javax.swing.JFrame {
         jMenu1.setText("Administracion");
 
         jMenuItem1.setText("Productos");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
@@ -91,6 +97,15 @@ public class Detodosa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        jIfProductos producto = new jIfProductos();
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        producto.setVisible(true);
+        jDesktopPane1.add(producto);
+        jDesktopPane1.moveToFront(producto);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
