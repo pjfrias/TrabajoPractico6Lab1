@@ -1,30 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package entidades;
 
-/**
- *
- * @author 54265
- */
-public class Producto {
+
+public class Producto implements Comparable<Producto> {
     private int codigo;
     private String descripcion;
-    private Double precio;
+    private double precio;
+    private Rubro rubro;
     private int stock;
-    private String rubro;
 
-    public Producto(int codigo, String descripcion, Double precio, int stock, String rubro) {
+    public Producto() {
+    }
+
+    public Producto(int codigo, String descripcion, double precio, Rubro rubro, int stock) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.precio = precio;
-        this.stock = stock;
         this.rubro = rubro;
-    }
-
-    public Producto() {
+        this.stock = stock;
     }
 
     public int getCodigo() {
@@ -43,12 +36,20 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public Double getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Double precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public Rubro getRubro() {
+        return rubro;
+    }
+
+    public void setRubro(Rubro rubro) {
+        this.rubro = rubro;
     }
 
     public int getStock() {
@@ -59,44 +60,28 @@ public class Producto {
         this.stock = stock;
     }
 
-    public String getRubro() {
-        return rubro;
-    }
-
-    public void setRubro(String rubro) {
-        this.rubro = rubro;
-    }
-
     @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + this.codigo;
-        return hash;
+    public int compareTo(Producto t) {
+        //0-->iguales
+        //1-->mayor
+        //-1-->menor
+        if(this.codigo==t.codigo){
+            
+            return 0;
+            
+        }else if(this.codigo >t.codigo){
+        
+            return 1;
+        }else {
+        
+            return -1;
+        }
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Producto other = (Producto) obj;
-        if (this.codigo != other.codigo) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Producto{" + "codigo=" + codigo + ", descripcion=" + descripcion + ", precio=" + precio + ", stock=" + stock + ", rubro=" + rubro + '}';
-    }
-    
+   public String toString(){
+   
+       return codigo+" "+descripcion;
+   }
     
     
 }
