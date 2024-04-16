@@ -44,8 +44,6 @@ private DefaultTableModel modelo=new DefaultTableModel();
 
         setClosable(true);
         setForeground(new java.awt.Color(204, 204, 204));
-        setMaximizable(true);
-        setResizable(true);
 
         jlListadoNombre.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlListadoNombre.setText("Listado Por Nombre");
@@ -78,6 +76,7 @@ private DefaultTableModel modelo=new DefaultTableModel();
                 return types [columnIndex];
             }
         });
+        jtTabla.setEnabled(false);
         jScrollPane1.setViewportView(jtTabla);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N

@@ -183,7 +183,7 @@ DefaultTableModel modelo;
             llenarTabla(Double.parseDouble(jtDesde.getText()), Double.parseDouble(jtHasta.getText()));
         }
         else{
-            if(!jtDesde.getText().equals("0"))
+            if(!jtHasta.getText().equals("0"))
                 JOptionPane.showMessageDialog(this, "Ingresar un precio valido (Use . para decimal)");
         }
     }//GEN-LAST:event_jtHastaKeyReleased

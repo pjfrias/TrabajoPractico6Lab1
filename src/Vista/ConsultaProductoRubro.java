@@ -25,7 +25,7 @@ private DefaultTableModel modelo=new DefaultTableModel();
         initComponents();
         this.productos=productos;
         llenarCombo();
-        armarCabecera();
+        armarCabecera();       
     }
 
     /**
@@ -45,13 +45,10 @@ private DefaultTableModel modelo=new DefaultTableModel();
         jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
-        setMaximizable(true);
-        setResizable(true);
 
         jlERubro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jlERubro.setText("Elija Rubro:");
 
-        jcCategorias.setBackground(new java.awt.Color(255, 255, 255));
         jcCategorias.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jcCategorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,19 +67,24 @@ private DefaultTableModel modelo=new DefaultTableModel();
                 "Codigo", "Descripcion", "Precio", "Stock"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jtLista.setEnabled(false);
         jtLista.setGridColor(new java.awt.Color(51, 51, 51));
         jtLista.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jtLista.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jtLista.setShowHorizontalLines(false);
-        jtLista.setShowVerticalLines(false);
         jScrollPane1.setViewportView(jtLista);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
